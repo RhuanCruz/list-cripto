@@ -1,6 +1,7 @@
 import 'package:flutter_estudo_1/models/currency.dart';
 
 class CurrencyRepository {
+  bool isSorted = false;
   static List<Currency> table = [
     Currency(
         icon: 'assets/btc.png', name: 'Bitcoin', price: 70000, sigle: 'BTC'),
@@ -15,4 +16,14 @@ class CurrencyRepository {
     Currency(
         icon: 'assets/plkadot.png', name: 'Polkadot', price: 550, sigle: 'POL'),
   ];
+
+  // sort() {
+  //   if (!isSorted) {
+  //     table.sort((Currency a, Currency b) => a.price.compareTo(b.price));
+  //     isSorted = true;
+  //   } else {
+  //     table = table.reversed.toList();
+  //   }
+  // }
 }
+
