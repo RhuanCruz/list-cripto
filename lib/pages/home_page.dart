@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  NumberFormat usd = NumberFormat.currency(locale: 'pt_BR', name: 'USD');
+  NumberFormat usd = NumberFormat.currency(locale: 'pt_BR', name: 'U\$');
   final table = CurrencyRepository.table;
   List<Currency> selecionadas = [];
 
@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     if (selecionadas.isEmpty) {
       return AppBar(
         backgroundColor: Colors.amber,
-        title: Text('Coins'),
+        title: Center(child: Text('Coins', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),)),
       );
     } else {
       return AppBar(
