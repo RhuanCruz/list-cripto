@@ -1,16 +1,22 @@
-# flutter_estudo_1
+# App wallet cripto
 
-A new Flutter project.
+Este aplicativo é uma ferramenta de controle pessoal de aportes em criptomoedas. Ele possui as seguintes funcionalidades:
 
-## Getting Started
+# Tela Principal:
 
-This project is a starting point for a Flutter application.
+- Exibe uma lista de criptomoedas disponíveis no mercado.
+- Inclui um filtro de pesquisa para facilitar a localização de criptomoedas específicas.
+- Permite navegação para as páginas de detalhes das criptomoedas.
 
-A few resources to get you started if this is your first Flutter project:
+# Telas Individuais de Criptomoedas:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Mostram informações detalhadas sobre cada criptomoeda, incluindo preço atual, variação diária, preço máximo, preço mínimo e outras estatísticas relevantes.
+- Inclui um formulário para o usuário salvar o aporte feito naquela criptomoeda.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Tela de Dashboard da Carteira:
+
+- Fornece uma visão geral da carteira do usuário, mostrando o valor total investido, a distribuição dos investimentos entre diferentes criptomoedas e o desempenho da carteira ao longo do tempo.
+
+- Apresenta gráficos e estatísticas para ajudar o usuário a monitorar e gerenciar seus aportes.
+
+Esta estrutura oferece aos usuários uma maneira intuitiva e eficiente de acompanhar suas criptomoedas e registrar seus investimentos, permitindo uma gestão financeira mais informada e organizada.
