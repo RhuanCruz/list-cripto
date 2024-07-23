@@ -1,6 +1,8 @@
 # App wallet cripto
 
-Este aplicativo é uma ferramenta de controle pessoal de aportes em criptomoedas. Ele possui as seguintes funcionalidades:
+Este aplicativo é uma ferramenta de controle pessoal de aportes em criptomoedas. 
+
+Ele possui as seguintes funcionalidades:
 
 # Tela Principal:
 
