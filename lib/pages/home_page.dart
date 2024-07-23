@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_estudo_1/models/currency.dart';
 import 'package:flutter_estudo_1/pages/currency_details_page.dart';
 import 'package:flutter_estudo_1/repository/currency_repository.dart';
@@ -30,12 +28,12 @@ class _HomePageState extends State<HomePage> {
     if (selecionadas.isEmpty) {
       return AppBar(
         backgroundColor: Colors.amber,
-        title: Center(child: Text('Coins', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),)),
+        title: const Center(child: Text('Criptos', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),)),
       );
     } else {
       return AppBar(
         leading: IconButton(
-          icon: Icon(Icons.clear),
+          icon: const Icon(Icons.clear),
           onPressed: () {
             setState(() {
               selecionadas = [];
@@ -43,9 +41,9 @@ class _HomePageState extends State<HomePage> {
           },
         ),
         title: Text('${selecionadas.length} selected'),
-        backgroundColor: Color.fromARGB(66, 192, 189, 189),
+        backgroundColor: const Color.fromARGB(66, 192, 189, 189),
         elevation: 1,
-        iconTheme: IconThemeData(color: Colors.black, size: 30),
+        iconTheme: const IconThemeData(color: Colors.black, size: 30),
       );
     }
   }
@@ -60,26 +58,26 @@ class _HomePageState extends State<HomePage> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
                 leading: (selecionadas.contains(table[currency]))
-                    ? CircleAvatar(
+                    ? const CircleAvatar(
                         child: Icon(Icons.check),
                       )
                     : SizedBox(
+                        width: 50,
+                        height: 200,
                         child: Image.asset(
                           table[currency].icon,
                         ),
-                        width: 50,
-                        height: 200,
                       ),
                 title: Text(table[currency].name,
                     style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
+                        const TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
                 trailing: Text(
                   usd.format(table[currency].price),
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 20, color: Color.fromARGB(255, 0, 0, 0)),
                 ),
                 selected: selecionadas.contains(table[currency]),
-                selectedTileColor: Color.fromARGB(238, 255, 193, 9),
+                selectedTileColor: const Color.fromARGB(238, 255, 193, 9),
                 onLongPress: () {
                   setState(() {
                     (selecionadas.contains(table[currency]))
@@ -90,19 +88,19 @@ class _HomePageState extends State<HomePage> {
                 onTap: () => currencyDetails(table[currency]),
               );
             },
-            padding: EdgeInsets.all(16),
-            separatorBuilder: (_, __) => Divider(),
+            padding: const EdgeInsets.all(16),
+            separatorBuilder: (_, __) => const Divider(),
             itemCount: CurrencyRepository.table.length),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: selecionadas.isNotEmpty
             ? FloatingActionButton.extended(
                 backgroundColor: Colors.amber,
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.star,
                   color: Colors.white,
                 ),
-                label: Text(
+                label: const Text(
                   'FAVORITAR',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
