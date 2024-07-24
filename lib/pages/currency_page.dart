@@ -94,7 +94,7 @@ class _CurrencyPageState extends State<CurrencyPage> {
                         )
                     ),
                     if(favorites.lista.contains(table[currency])) 
-                      const Icon(Icons.star, color: Colors.amber, size: 15,)                  
+                      const Icon(Icons.star, color: Colors.amber, size: 22,)                  
                   ],
                 ),
                     

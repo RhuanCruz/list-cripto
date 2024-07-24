@@ -7,7 +7,7 @@ class Currency {
   double lastPrice;
   double highPrice;
   double dailyChange;
-  
+
 
   Currency({
     required this.icon,
