@@ -64,11 +64,11 @@ class _FavoritePageState extends State<FavoritePage> {
         appBar: appBarDinamica(),
         body: Container(
             height: MediaQuery.of(context).size.height,
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             child: Consumer<FavoriteRepository>(
                 builder: (context, favorites, child) {
               return favorites.lista.isEmpty
-                  ? ListTile(
+                  ? const ListTile(
                       leading: Icon(Icons.star),
                       title: Text("You haven't favorited any cryptos"),
                     )

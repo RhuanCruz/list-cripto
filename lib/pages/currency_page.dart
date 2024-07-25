@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_estudo_1/configs/app_settings.dart';
 import 'package:flutter_estudo_1/models/currency.dart';
 import 'package:flutter_estudo_1/pages/currency_details_page.dart';
 import 'package:flutter_estudo_1/repository/currency_repository.dart';
@@ -14,12 +15,37 @@ class CurrencyPage extends StatefulWidget {
 }
 
 class _CurrencyPageState extends State<CurrencyPage> {
-  NumberFormat usd = NumberFormat.currency(locale: 'pt_BR', name: 'U\$');
+  late NumberFormat usd;
+  late Map<String, String> loc;
   final table = CurrencyRepository.table;
   List<Currency> selecionadas = [];
   late FavoriteRepository favorites;
 
-  
+  readNumberFormat() {
+    loc = context.watch<AppSettings>().locale;
+    usd = NumberFormat.currency(locale: loc['locale'], name: loc['name']);
+  }
+
+  changeLanguageButton() {
+    final locale = loc['locale'] == 'en_US' ? 'pt_BR' : 'en_US';
+    final name = loc['locale'] == 'en_US' ? 'R\$' : '\$';
+
+    return PopupMenuButton(
+        icon: const Icon(Icons.language),
+        itemBuilder: (context) => [
+          PopupMenuItem(
+            child: ListTile(
+              leading: const Icon(Icons.swap_vert),
+              title: Text('Use $locale'),
+              onTap: () {
+                context.read<AppSettings>().setLocale(locale, name);
+                Navigator.pop(context);
+              },
+            ),
+          )
+        ]);
+  }
+
   currencyDetails(Currency currency) {
     Navigator.push(
         context,
@@ -32,11 +58,11 @@ class _CurrencyPageState extends State<CurrencyPage> {
     if (selecionadas.isEmpty) {
       return AppBar(
         backgroundColor: Colors.amber,
-        title: const Center(
-            child: Text(
+        title: const Text(
           'Criptos',
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-        )),
+        ),
+        actions: [changeLanguageButton()],
       );
     } else {
       return AppBar(
@@ -64,10 +90,9 @@ class _CurrencyPageState extends State<CurrencyPage> {
 
   @override
   Widget build(BuildContext context) {
-    
     // favorites = Provider.of<FavoriteRepository>(context);
     favorites = context.watch<FavoriteRepository>();
-
+    readNumberFormat();
     return Scaffold(
         appBar: appBarDinamica(),
         body: ListView.separated(
@@ -90,14 +115,15 @@ class _CurrencyPageState extends State<CurrencyPage> {
                   children: [
                     Text(table[currency].name,
                         style: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.w600
-                        )
-                    ),
-                    if(favorites.lista.contains(table[currency])) 
-                      const Icon(Icons.star, color: Colors.amber, size: 22,)                  
+                            fontSize: 20, fontWeight: FontWeight.w600)),
+                    if (favorites.lista.contains(table[currency]))
+                      const Icon(
+                        Icons.star,
+                        color: Color.fromARGB(255, 252, 250, 243),
+                        size: 22,
+                      )
                   ],
                 ),
-                    
                 trailing: Text(
                   usd.format(table[currency].price),
                   style: const TextStyle(
