@@ -32,12 +32,12 @@ class _CurrencyCardState extends State<CurrencyCard> {
   Widget build(BuildContext context) {
     return Card(
       color: const Color.fromARGB(255, 255, 255, 255),
-      margin: EdgeInsets.only(top: 12),
+      margin: const EdgeInsets.only(top: 12),
       elevation: 2,
       child: InkWell(
         onTap: () => currencyDetails(widget.currency),
         child: Padding(
-          padding: EdgeInsets.only(top: 20, bottom: 20, left: 20),
+          padding: const EdgeInsets.only(top: 20, bottom: 20, left: 20),
           child: Row(
             children: [
               Image.asset(
@@ -46,30 +46,30 @@ class _CurrencyCardState extends State<CurrencyCard> {
               ),
               Expanded(
                   child: Container(
-                margin: EdgeInsets.only(left: 12),
+                margin: const EdgeInsets.only(left: 12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       widget.currency.name,
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                          const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                     ),
                     Text(
                       widget.currency.sigle,
-                      style: TextStyle(fontSize: 12, color: Colors.black54),
+                      style: const TextStyle(fontSize: 12, color: Colors.black54),
                     ),
                   ],
                 ),
               )),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                       colors: [Colors.amber, Colors.white],
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter),
-                  border: Border.all(color: Color.fromARGB(255, 255, 255, 255)),
+                  border: Border.all(color: const Color.fromARGB(255, 255, 255, 255)),
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: Text(
@@ -83,12 +83,12 @@ class _CurrencyCardState extends State<CurrencyCard> {
               ),
               PopupMenuButton(
                   color: Colors.white,
-                  icon: Icon(Icons.more_vert),
+                  icon: const Icon(Icons.more_vert),
                   itemBuilder: (context) => [
                         PopupMenuItem(
                           
                           child: ListTile(
-                          title: Text("Unfavorite"),
+                          title: const Text("Unfavorite"),
                           onTap: () {
                             Navigator.pop(context);
                             Provider.of<FavoriteRepository>(context,
