@@ -116,10 +116,10 @@ class _CurrencyPageState extends State<CurrencyPage> {
                     Text(table[currency].name,
                         style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w600)),
-                    if (favorites.lista.contains(table[currency]))
+                    if (favorites.lista.any((fav) => fav.sigle == table[currency].sigle))
                       const Icon(
                         Icons.star,
-                        color: Color.fromARGB(255, 252, 250, 243),
+                        color: Color.fromARGB(255, 255, 200, 0),
                         size: 22,
                       )
                   ],
